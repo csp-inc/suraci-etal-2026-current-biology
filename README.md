@@ -12,3 +12,12 @@ Quantifying the ecosystem services provided by large carnivores through their to
 
 #### *Analysis Workflow*
 
+This analysis consists of two primary component: 
+1. Modeling the effects of puma presence on deer and elk spatiotemporal habitat use using Continuous Time Occupancy (CTO) models. Scripts in the [cto-analysis](cto-analysis/) directory:
+  - Prepare and examine [model covariates](cto-analysis/00-assess-covariate-soe.R)
+  - Fit CTO models for puma interactions with [deer](cto-analysis/01-ct-occ-model-deer-puma.R) and [elk](cto-analysis/01-ct-occ-model-elk-puma.R)
+2. Quantifying the effects of puma presence and activity on deer-vehicle collisions. Scripts in the [dvc-analysis](dvc-analysis/) directory:
+  - Calculate [puma and deer occupancy probability](dvc-analysis/00-calc-psi-at-cam-locs-v2.R) (from CTO model results) at locations across the study area
+  - Prepare [data on deer-vehicle collisions](dvc-analysis/01-prep-wvc-dataset-v2.R)
+  - Run [primary](dvc-analysis/02-wvc-modelling-v4.R) and [corroborative](dvc-analysis/03-wvc-vs-puma-kde.R) models of puma effects on DVC probability and counts  
+
